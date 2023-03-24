@@ -56,7 +56,7 @@ public class Torch_FlashLight : MonoBehaviour
 
         if(on)
         {
-            lifeTime -= 5 * Time.deltaTime;
+            lifeTime -= 1 * Time.deltaTime;
         }
 
         if(lifeTime <= 0) 

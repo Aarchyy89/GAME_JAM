@@ -69,4 +69,6 @@ public class CharacterControllerMovement : MonoBehaviour
 
         playerCamera.transform.localRotation = Quaternion.Euler(xRot, 0f, 0f); // Rotamos a la cámara
     }
+
+
 }

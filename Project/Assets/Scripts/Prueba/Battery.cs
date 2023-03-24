@@ -8,8 +8,9 @@ public class Battery : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Torch_FlashLight.instance.lifeTime = Torch_FlashLight.instance.lifeTime + 5;
+            Torch_FlashLight.instance.lifeTime = Torch_FlashLight.instance.lifeTime + 25;
             Destroy(gameObject);
         }
     }
+  
 }
