@@ -30,6 +30,7 @@ public class Hola_Controller : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
     }
 
     private void Start()
@@ -57,7 +58,7 @@ public class Hola_Controller : MonoBehaviour
         {
             speed = runspeed;
             _stamina_controller.we_Are_running = true;
-            //run
+            Stamina_Controller.instance.Running();
         }
         else
         {
