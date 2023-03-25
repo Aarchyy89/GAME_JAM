@@ -1,5 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 public class enemigoBasico : MonoBehaviour
@@ -32,5 +32,11 @@ public class enemigoBasico : MonoBehaviour
         navMeshAgent.SetDestination(player.position);
     }
 
-    
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Level_Manager.instance.Die();
+        }
+    }
 }
