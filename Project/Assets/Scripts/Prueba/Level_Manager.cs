@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level_Manager : MonoBehaviour
 {
-    public static Level_Manager instance;
-
     public GameObject Panel_Pause;
+    public GameObject panel_muerte;
+    public GameObject panel_locura;
 
     public bool Pausedgame;
+
+    public static Level_Manager instance;
+
     private void Awake()
     {
         instance = this;    
@@ -38,6 +42,19 @@ public class Level_Manager : MonoBehaviour
             Panel_Pause.SetActive(false);
             Time.timeScale = 1;
         }
+    }
+
+    public void Die()
+    {
+        panel_muerte.SetActive(true);
+        //Time.timeScale = 0;
+    }
+
+    public void RestartLevel()
+    {
+        //Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
 }

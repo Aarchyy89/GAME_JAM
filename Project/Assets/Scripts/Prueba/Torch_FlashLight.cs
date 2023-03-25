@@ -8,10 +8,14 @@ public class Torch_FlashLight : MonoBehaviour
     public Light light;
     
     public TMP_Text LIFETIME_text;
-    public TMP_Text battery_text;
+    //public TMP_Text battery_text;
+
+    public GameObject bat_1;
+    public GameObject bat_2;
+    public GameObject bat_3;
 
     public float lifeTime = 100;
-    public float batteries = 0;
+    //public float batteries = 0;
 
     public AudioSource FLASHoN;
     public AudioSource FLASHoFF;
@@ -24,7 +28,7 @@ public class Torch_FlashLight : MonoBehaviour
     {
         instance = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         //text.text = "Flashlight : " + lifeTime + "%";
@@ -38,7 +42,7 @@ public class Torch_FlashLight : MonoBehaviour
     void Update()
     {
         LIFETIME_text.text = lifeTime.ToString("0") + "%";
-        battery_text.text = batteries.ToString();
+        //battery_text.text = batteries.ToString();
 
         /**if(Input.GetButtonDown("flashlight") && off)
         {
@@ -57,6 +61,39 @@ public class Torch_FlashLight : MonoBehaviour
         if(on)
         {
             lifeTime -= 1 * Time.deltaTime;
+            if(lifeTime <= 70)
+            {
+                bat_1.SetActive(false);
+            }
+
+            if (lifeTime >= 70)
+            {
+                bat_1.SetActive(true);
+            }
+
+            if (lifeTime <= 40)
+            {
+                bat_2.SetActive(false);
+            }
+
+            if (lifeTime >= 40)
+            {
+                bat_2.SetActive(true);
+            }
+            if (lifeTime <= 10)
+            {
+                bat_3.SetActive(false);
+            }
+
+            if (lifeTime >= 10)
+            {
+                bat_3.SetActive(true);
+            }
+
+            if (lifeTime >= 100)
+            {
+                lifeTime = 100;
+            }
         }
 
         if(lifeTime <= 0) 
@@ -66,17 +103,14 @@ public class Torch_FlashLight : MonoBehaviour
             off = true;
             lifeTime = 0;
 
-            //morir
+            Level_Manager.instance.Die();
         }
 
-        if(lifeTime >= 100)
-        {
-            lifeTime = 100;
-        }
+       
 
-        if(batteries <= 0)
+        /**if(batteries <= 0)
         {
             batteries = 0;
-        }
+        }*/
     }
 }

@@ -31,4 +31,6 @@ public class enemigoBasico : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(player.position);
     }
+
+    
 }

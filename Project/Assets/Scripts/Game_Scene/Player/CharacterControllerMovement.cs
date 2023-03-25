@@ -21,6 +21,17 @@ public class CharacterControllerMovement : MonoBehaviour
     private Vector2 playerMouseInput;
     private float xRot;
 
+    public static CharacterControllerMovement Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        Locura_Controller.instance.GetComponent<CharacterController>(); 
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,6 +42,7 @@ public class CharacterControllerMovement : MonoBehaviour
 
         MovePlayer();
         MovePlayerCamera();
+
 
     }
 
