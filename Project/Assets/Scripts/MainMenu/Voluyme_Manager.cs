@@ -1,40 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Voluyme_Manager : MonoBehaviour
 {
-    public Slider slider;
-    public float sliderValue;
-    public Image mute_img;
+    [Header("musica")] public Slider sliderMusica;
+    public float slidervalueMusica;
+    public Image imgMuteMusica;
+    public AudioSource sourceMusica;
 
-    private void Start()
+    [Header("sonido")] public Slider sliderSoindos;
+    public float slidervalueSonidos;
+    public Image imgMuteSonidos;
+    public AudioSource sourceSonidos;
+
+    void Start()
     {
-        slider.value = PlayerPrefs.GetFloat("Volume", 0.5f);
-        AudioListener.volume = slider.value;
-        Mute();
+        sliderMusica.value = PlayerPrefs.GetFloat("volmenMusica", 0.5f);
+        sourceMusica.volume = sliderMusica.value;
+        musicaMute();
+        
+        sliderSoindos.value = PlayerPrefs.GetFloat("volmenSonidos", 0.5f);
+        sourceSonidos.volume = sliderSoindos.value;
+        sonidosMute();
     }
 
-    public void ChangeSlider(float valor)
+    public void slidermusica(float valorMusica)
     {
-        sliderValue = valor;
-        PlayerPrefs.SetFloat("Volume", sliderValue);
-        AudioListener.volume = slider.value;
-        Mute(); 
-
-                        
+        slidervalueMusica = valorMusica;
+        PlayerPrefs.SetFloat("volmenMusica", slidervalueMusica);
+        sourceMusica.volume = sliderMusica.value;
+        musicaMute();
+        
+    }
+    
+    public void slidersonidos(float valorSonidos)
+    {
+        slidervalueSonidos = valorSonidos;
+        PlayerPrefs.SetFloat("volmenSonidos", slidervalueSonidos);
+        sourceSonidos.volume = sliderSoindos.value;
+        sonidosMute();
+        
     }
 
-    public void Mute()
+    public void musicaMute()
     {
-        if(sliderValue == 0)
+        if (slidervalueMusica == 0)
         {
-            mute_img.enabled = true;
+            imgMuteMusica.enabled = true;
         }
         else
         {
-            mute_img.enabled = false;
+            imgMuteMusica.enabled = false;
         }
     }
+    
+    public void sonidosMute()
+    {
+        if (slidervalueSonidos == 0)
+        {
+            imgMuteSonidos.enabled = true;
+        }
+        else
+        {
+            imgMuteSonidos.enabled = false;
+        }
+    }
+
 }
