@@ -13,7 +13,7 @@ public class Locura_Controller : MonoBehaviour
        
 
     [Header("Stamina_Parameters")]
-    [Range(0f, 50f)][SerializeField] private float Stamina_Drain = 0.5f;
+    [Range(0f, 50f)][SerializeField] private float Stamina_Drain = 20f;
     [Range(0f, 50f)][SerializeField] private float Stamina_Regen = 0.5f;
 
     [Header("Stamina_UI_Elements")]
