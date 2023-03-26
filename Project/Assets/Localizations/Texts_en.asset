@@ -82,6 +82,14 @@ MonoBehaviour:
     m_Localized: Language
     m_Metadata:
       m_Items: []
+  - m_Id: 726905887096832
+    m_Localized: Camera
+    m_Metadata:
+      m_Items: []
+  - m_Id: 726888455569408
+    m_Localized: Movement
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
