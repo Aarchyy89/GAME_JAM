@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemigo
   - Mascota
+  - SpawnPoint
+  - Door
   layers:
   - Default
   - TransparentFX
