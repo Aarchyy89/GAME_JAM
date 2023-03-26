@@ -16,7 +16,7 @@ public class NMAScript : MonoBehaviour
     private void Start()
     {
         nma = this.GetComponent<NavMeshAgent>();
-        bndFloor = GameObject.Find("floor").GetComponent<Renderer>().bounds;
+        bndFloor = GameObject.Find("suelo").GetComponent<Renderer>().bounds;
         pole = GameObject.Find("pole");
         tmpro = GameObject.Find("UIText").GetComponent<TextMeshProUGUI>();
 
