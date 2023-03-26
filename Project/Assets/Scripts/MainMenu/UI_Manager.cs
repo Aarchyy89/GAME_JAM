@@ -2,18 +2,70 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("---Paneles---")]
+    public GameObject Controls_panel;
+    public GameObject options_panel;
+    public GameObject idioma_panel;
+    public GameObject volumen_panel;
+
+    [Header("---Botones---")]
+    public GameObject return_but;
+
+    #region MainMenu
+
+    public void Play()
     {
-        
+        SceneManager.LoadScene(1);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Controls()
     {
-        
+        Controls_panel.SetActive(true);
+        volumen_panel.SetActive(false);
+        idioma_panel.SetActive(false); 
+        options_panel.SetActive(false);
+    }
+
+    public void Options()
+    {
+        options_panel.SetActive(true);
+        Controls_panel.SetActive(false);
+        volumen_panel.SetActive(false);
+        idioma_panel.SetActive(false);
+    }
+
+    public void Idioma()
+    {
+        idioma_panel.SetActive(true);
+        Controls_panel.SetActive(false);
+        volumen_panel.SetActive(false);
+        options_panel.SetActive(false);
+    }
+
+    public void Volumen()
+    {
+        volumen_panel.SetActive(true);
+        idioma_panel.SetActive(false);
+        Controls_panel.SetActive(false);
+        options_panel.SetActive(false);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    #endregion
+
+    public void ReturnMainMenu()
+    {
+        options_panel.SetActive(false);
+        Controls_panel.SetActive(false);
+        volumen_panel.SetActive(false);
+        idioma_panel.SetActive(false);
     }
 }
