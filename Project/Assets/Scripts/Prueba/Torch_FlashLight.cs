@@ -60,7 +60,7 @@ public class Torch_FlashLight : MonoBehaviour
 
         if(on)
         {
-            lifeTime -= 1 * Time.deltaTime;
+            lifeTime -= 2 * Time.deltaTime;
             if(lifeTime <= 70)
             {
                 bat_1.SetActive(false);
