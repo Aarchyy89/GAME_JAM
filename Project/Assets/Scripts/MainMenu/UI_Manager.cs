@@ -11,6 +11,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject options_panel;
     public GameObject idioma_panel;
     public GameObject volumen_panel;
+    public GameObject pause_menu;
 
     [Header("---Botones---")]
     public GameObject return_but;
@@ -67,5 +68,11 @@ public class UI_Manager : MonoBehaviour
         Controls_panel.SetActive(false);
         volumen_panel.SetActive(false);
         idioma_panel.SetActive(false);
+    }
+
+    public void Resume()
+    {
+        pause_menu.SetActive(false);
+        Time.timeScale = 1;
     }
 }

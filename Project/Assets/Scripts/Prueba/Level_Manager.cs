@@ -43,6 +43,11 @@ public class Level_Manager : MonoBehaviour
         {
             ModoLocura();
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Enemigo"));
+        }
     }
 
    
@@ -95,5 +100,8 @@ public class Level_Manager : MonoBehaviour
         }
     }
 
-
+    public void Destroy(string tag)
+    {
+        GameObject[] gameobjects = GameObject.FindGameObjectsWithTag(tag);
+    }
 }
