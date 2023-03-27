@@ -12,9 +12,17 @@ public class UI_Manager : MonoBehaviour
     public GameObject idioma_panel;
     public GameObject volumen_panel;
     public GameObject pause_menu;
+    public GameObject win_panel;
 
     [Header("---Botones---")]
     public GameObject return_but;
+
+    public static UI_Manager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     #region MainMenu
 
