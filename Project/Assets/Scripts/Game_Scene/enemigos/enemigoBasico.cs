@@ -1,4 +1,4 @@
-
+using System.Collections;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,6 +8,13 @@ public class enemigoBasico : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform player;
+    public static enemigoBasico instance;
+    public GameObject screamer;
+    private void Awake()
+    {
+        instance = this;
+        
+    }
 
     void Start()
     {
@@ -38,7 +45,12 @@ public class enemigoBasico : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            
+            screamer.SetActive(true);
             Level_Manager.instance.Die();
         }
     }
+
+    
+    
 }

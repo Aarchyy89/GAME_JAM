@@ -9,10 +9,11 @@ public class Level_Manager : MonoBehaviour
     public GameObject Panel_Pause;
     public GameObject panel_muerte;
     public GameObject panel_locura;
-
+    public GameObject Godmode;
     public CanvasGroup locura_grp;
-
+    public GameObject player;
     public bool Pausedgame;
+    public bool Godedmode;
 
     public float tiempo_Total;
 
@@ -32,12 +33,20 @@ public class Level_Manager : MonoBehaviour
             PauseGame(); 
         }
 
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            player.transform.position = Spawner.instance.door.gameObject.transform.position;
+        }
+        
+        
         if(Mascota_Controller.instance.player_locura == Mascota_Controller.instance.max_locura)
         {
             ModoLocura();
         }
     }
 
+   
+    
     public void PauseGame()
     {
         Pausedgame = !Pausedgame;
@@ -85,7 +94,6 @@ public class Level_Manager : MonoBehaviour
             Die();
         }
     }
-
 
 
 }

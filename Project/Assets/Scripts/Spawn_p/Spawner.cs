@@ -7,10 +7,12 @@ public class Spawner : MonoBehaviour
     public GameObject[] SpawnLocations;
     public GameObject door;
 
+    public static Spawner instance;
     public Vector3 respawnLocation;
 
     private void Awake()
     {
+        instance = this;
         SpawnLocations = GameObject.FindGameObjectsWithTag("SpawnPoint");
     }
 

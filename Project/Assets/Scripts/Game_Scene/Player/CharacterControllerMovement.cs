@@ -14,24 +14,21 @@ public class CharacterControllerMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float sensitivity;
     [SerializeField] private float gravity = -9.81f;
-
     // Private Attributes
     private Vector3 velocity;
     private Vector3 playerMovementInput;
     private Vector2 playerMouseInput;
     private float xRot;
-
+   
+    
     public static CharacterControllerMovement Instance;
 
     private void Awake()
     {
         Instance = this;
+        
     }
-
-    private void Start()
-    {
-       
-    }
+    
 
     // Update is called once per frame
     void Update()
@@ -39,7 +36,7 @@ public class CharacterControllerMovement : MonoBehaviour
         // Capturamos los inputs del jugador y los almacenamos en las Variables de tipo Vector3 y Vector2
         playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         playerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
+        
         MovePlayer();
         MovePlayerCamera();
 
@@ -65,6 +62,7 @@ public class CharacterControllerMovement : MonoBehaviour
 
         characterController.Move(moveVector * speed * Time.deltaTime);
         characterController.Move(velocity * Time.deltaTime);
+        
 
     }
 
