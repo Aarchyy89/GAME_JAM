@@ -7,7 +7,7 @@ public class Mascota_Controller : MonoBehaviour
 {
     [Header("Parameters")]
     public float player_locura = 0f;
-    [SerializeField] private float max_locura = 100.0f;
+    [SerializeField] public float max_locura = 100.0f;
     [SerializeField] private bool we_Are_flashing = false;
     
        
@@ -20,10 +20,17 @@ public class Mascota_Controller : MonoBehaviour
     [SerializeField] private Image stamina_Progress = null;
     [SerializeField] private CanvasGroup slider_grp = null;
 
+    public static Mascota_Controller instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
 
     private void Start()
     {
-        Locura_Controller.instance.GetComponent<Locura_Controller>();
+        
     }
 
     private void Update()
@@ -33,6 +40,7 @@ public class Mascota_Controller : MonoBehaviour
             player_locura -= Stamina_Regen + Time.deltaTime;
             UpdateStamina(1);
 
+           
             if (player_locura <= 0)
             {
                 player_locura = 0;
@@ -44,6 +52,8 @@ public class Mascota_Controller : MonoBehaviour
                 slider_grp.alpha = 1;
             }
         }
+
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -52,7 +62,10 @@ public class Mascota_Controller : MonoBehaviour
         {
             other.GetComponent<enemigoBasico>().StopEnemy(); 
             Flashing();
-
+            if (player_locura == 100)
+            {
+                Level_Manager.instance.ModoLocura();
+            }
         }
     }
 
@@ -61,6 +74,13 @@ public class Mascota_Controller : MonoBehaviour
         if (other.CompareTag("Enemigo"))
         {
             we_Are_flashing = false;
+
+            if (player_locura >= 100)
+            {
+                we_Are_flashing = true;
+                player_locura = 100;
+            }
+
             other.GetComponent<enemigoBasico>().GoToTarget();
             
         }
@@ -72,10 +92,11 @@ public class Mascota_Controller : MonoBehaviour
         player_locura += Stamina_Drain * Time.deltaTime;
         UpdateStamina(1);
 
-        if (player_locura == 100)
+        if(player_locura >= max_locura)
         {
-            Level_Manager.instance.panel_locura.gameObject.SetActive(true); 
+            player_locura = 100;
         }
+       
     }
     public void UpdateStamina(int value)
     {

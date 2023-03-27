@@ -30,7 +30,7 @@ public class CharacterControllerMovement : MonoBehaviour
 
     private void Start()
     {
-        Locura_Controller.instance.GetComponent<CharacterController>(); 
+       
     }
 
     // Update is called once per frame
