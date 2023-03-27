@@ -10,7 +10,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Game_Scene/wincondition/win.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.probuilder@5.0.6/Editor/EditorCore/ProBuilderMeshPreview.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Temp/Compiled-Standard.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -70,6 +69,7 @@
       <updated>1679768967994</updated>
       <workItem from="1679768978896" duration="4745000" />
       <workItem from="1679832491122" duration="2269000" />
+      <workItem from="1679896634602" duration="956000" />
     </task>
     <servers />
   </component>

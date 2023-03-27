@@ -2,22 +2,24 @@
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+
 public class enemigoBasico : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform player;
-
-
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        
     }
 
     void Update()
     {
+        
         navMeshAgent.SetDestination(player.position);
     }
 
