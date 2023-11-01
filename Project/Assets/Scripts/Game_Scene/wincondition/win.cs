@@ -8,7 +8,7 @@ public class win : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-           UI_Manager.instance.win_panelbien8.SetActive(true); 
+           //UI_Manager.instance.win_panelbien8.SetActive(true); 
         }
     }
 }
